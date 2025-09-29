@@ -1,8 +1,15 @@
+import Nav from "./Nav"
+import Hbg from "../pics/Header.jpg"
+
+
 export default function Header()
 {
     return(
-        <div className="flex-1">
-            Header
+        <div className="grid Header" style={{backgroundImage:`url(${Hbg})`}}>
+            <Nav/>
+            <div>
+                
+            </div>
         </div>
     );
 }

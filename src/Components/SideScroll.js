@@ -1,4 +1,24 @@
-export default function SideScroll()
+import Card from "./Card"
+
+export default function SideScroll(props)
 {
-    return;
+    return(
+        <div className="flex gap-5 overflow-x-auto whitespace-nowrap w-full snap-x snap-mandatory justify-around">
+            <Card type={props.type} />
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+            <Card type={props.type}/>
+        </div>
+    );
 }
