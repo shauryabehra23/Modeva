@@ -1,23 +1,84 @@
 *
 {
-  border:2px solid black;
+    border:1px solid black;
+    margin: 1px;
   font-family: "Playfair Display", serif;
 }
 
 .Header
 {
   display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Define column sizes */
+  grid-template-rows: 1fr 1fr auto auto auto; /* Define row sizes */
   grid-template-areas: 
     "nav nav nav"
-    "emp emp emp"
-    "head head emp"
-    "emp emp promo1"
-    "emp emp promo2";
-  grid-template-columns: 1fr 1fr 1fr; /* Define column sizes */
-  grid-template-rows: auto auto auto auto auto; /* Define row sizes */
+    ". . ."
+    "head head side"
+    ". . promo1"
+    ". . promo2";
+
+}
+
+.promo
+{
+  font-size: clamp(1rem, 3.333vw, 4rem);
+}
+
+html{
+  width: 100vw;
 }
 
 .Nav *
 {
-  padding:0.5rem;
+  padding: 2px;
+}
+
+.Nav
+{
+  grid-area: nav;
+}
+
+.Features
+{
+  display:grid;
+  grid-template-areas:
+  "a b b c"
+  "a d d c"
+}
+
+
+.Features *
+{
+  margin:1rem;
+}
+
+@media screen and (min-width:1400px)
+{
+  .sidebar
+  {
+    display: none;
+  }
+}
+
+@media screen and (max-width:1400px){
+  .Features{
+    display:grid;
+    grid-template-areas:
+    "a"
+    "b"
+    "c"
+    "d"
+  }
+
+  .nav{
+    display: none;
+  }
+}
+
+@media screen and (max-width:400px)
+{
+  .logo
+  {
+    display:none;
+  }
 }

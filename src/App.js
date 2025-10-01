@@ -6,7 +6,7 @@ import LandingPage from './Pages/LandingPage';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App items-center">
         <LandingPage/>
       </div>
     </BrowserRouter>
