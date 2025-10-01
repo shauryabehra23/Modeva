@@ -8,7 +8,7 @@ export default function Card(props)
         {
             props.type==="promo" && (
         <div className="max-h-[60vh] outline-1 outline-gray-800 flex flex-col text-left m-2">
-            <div className="relative">
+            <div className="relative w-full">
                 <img src={rating45} className="absolute text-2xl z-10 right-0 h-8 aspect-[146/46] w-24"/>
                 <img src={random} className="object-cover max-h-[40vh]"/>
             </div>
