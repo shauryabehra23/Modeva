@@ -19,6 +19,11 @@
 
 }
 
+.fh
+{
+  font-size: clamp(2rem,2vw,3rem);
+}
+
 .promo
 {
   font-size: clamp(1rem, 3.333vw, 4rem);
