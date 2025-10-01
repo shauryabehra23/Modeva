@@ -9,7 +9,7 @@ export default function Features()
                 <p className="fh">100% Satisfaction Guaranteed  </p>
                 <p className="fs font-mono text-opacity-75">Lorem ipsum dolor sit amet consectetur. Suspendisse laoreet scelerisque morbi vulputate. Quisque bibendum eget id diam elementum fringilla duis. </p>
             </div>
-            <div style={{gridArea:"b"}} className="b border-8 border-gray-400 flex items-center">
+            <div style={{gridArea:"b"}} className="b border-8 border-gray-400 flex flex-col xl:flex-row items-center">
                 <span class="material-symbols-outlined">
                         call
                 </span>
@@ -18,7 +18,7 @@ export default function Features()
                     <p className="fl font-mono text-opacity-75">Lorem ipsum dolor sit amet consectetur. Suspendisse laoreet scelerisque morbi vulputate. Quisque bibendum eget id diam elementum fringilla duis. </p>
                 </div>
             </div>
-            <div style={{gridArea:"d"}} className="c border-8 border-gray-400 flex items-center">
+            <div style={{gridArea:"d"}} className="c border-8 border-gray-400 flex flex-col xl:flex-row items-center">
                 <span class="material-symbols-outlined">
                         rocket_launch
                 </span>
