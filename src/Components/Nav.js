@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function Nav(props)
 {
+    const styles = props.font === "brown" ? {color : "#8B4513"} : {color : "white"}
     return(
             <div className=" Nav flex w-full items-center justify-between" style={{gridArea:"nav"}}>
             <div className="logo">
@@ -11,7 +12,7 @@ export default function Nav(props)
                 </a>
             </div>
 
-            <div className="text-white flex text-xl nav items-center justify-evenly gap-4">
+            <div className="flex text-xl nav items-center justify-evenly gap-4" style={styles}>
                 <a>Catalog</a>
                 <a>Sale</a>
                 <a>New Arrival</a>

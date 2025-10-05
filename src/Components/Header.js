@@ -12,7 +12,7 @@ export default function Header()
     }
     return(
         <div className="grid Header w-full bg-cover text-white" style={{backgroundImage:`url(${Hbg})`}}>
-            <Nav toggle={toggle} />
+            <Nav toggle={toggle} font="white"/>
             <div style={{gridArea:"head"}}>
                 <h6 className="text-3xl">made in Indonesia, dedicated to Indonesia</h6>
                 <h1 className="text-7xl">Discover the Art of Dressing Up</h1>

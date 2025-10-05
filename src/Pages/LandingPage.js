@@ -52,7 +52,7 @@ export default function LandingPage()
                 <ReactPlayer src='https://www.youtube.com/watch?v=UYDrMA16248&t=7s' className="w-11/12 h-auto m-auto"/>
               </section>
 
-              <section className="h-2/3">
+              <section className="h-2/3 bg-gray-400 mt-5">
                 <SideScroll type="reviews"/>
               </section>
 
