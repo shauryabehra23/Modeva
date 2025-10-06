@@ -11,11 +11,15 @@ import ReactPlayer from "react-player";
 import Nav from "../Components/Nav"
 import Hbg from "../pics/Header.jpg"
 import random from "../pics/rand2.png"
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import Card from "../Components/Card";
+
+const present = {};
+const reducer = e=>{};
 
 export default function Products()
 {
+    const [state, dispatch] = useReducer(present, reducer);
     const [nav, setNav] = useState(false);
     function toggle()
     {
@@ -49,11 +53,9 @@ export default function Products()
 
 
     return(
-        <div>
+        <div className="mt-6">
             <Promo/>
-            <div className="fixed top-6 bg-[#8B4513] z-30 w-full ">
-                <Nav toggle = {toggle} font="white"/>
-            </div>
+            <Nav toggle = {toggle} font="brown"/>
             <div>
 
                 <div className="fixed top-32 bg-gray-500 text-white w-1/6" style={{fontSize:"clamp(1rem, 2.5vw, 1.5rem)"}}>
@@ -113,7 +115,7 @@ export default function Products()
                 </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 w-[66.666%] m-auto mt-32">
+                <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 ml-[17%] mt-20">
                     {products.map(product => (
                         <Card 
                         key={product.id}
@@ -127,17 +129,6 @@ export default function Products()
                         image={product.image}
                         />
                     ))}
-                </div>
-                <div className="fixed right-0 top-32 z-50 w-1/6">
-                    {
-                        nav && 
-                        <div className="flex flex-col justify-start bg-opacity-60 bg-gray-600">
-                            <a className="p-3">Catalog</a>
-                            <a className="p-3">Sale</a>
-                            <a className="p-3">New Arrival</a>
-                            <a className="p-3">About</a>
-                        </div>
-                    }
                 </div>
             </div>
             <Footer/>

@@ -1,6 +1,6 @@
 *
 {
-    border:1px solid black;
+  border:1px solid black;
     margin: 1px;
   font-family: "Playfair Display", serif;
 }
@@ -57,7 +57,7 @@ html{
   margin:1rem;
 }
 
-@media screen and (min-width:1280px)
+@media screen and (min-width:1400px)
 {
   .sidebar
   {
@@ -80,7 +80,7 @@ html{
   }
 }
 
-@media screen and (max-width:400px)
+@media screen and (max-width:600px)
 {
   .logo
   {

@@ -4,10 +4,10 @@ import rating45 from "../pics/rating45.PNG"
 export default function Card(props)
 {
     return(
-        <div className="h-full">
+        <div>
         {
             props.type==="promo" && (
-        <div className="max-h-[60vh] outline-1 outline-gray-800 flex flex-col text-left m-2">
+        <div className="outline-1 outline-gray-800 flex flex-col text-left m-2 h-min">
             <div className="relative w-full">
                 <img src={rating45} className="absolute text-2xl z-10 right-0 aspect-[146/46] h-auto min-w-8 max-w-0"/>
                 <img src={random} className="object-cover max-h-[40vh] w-full" />
