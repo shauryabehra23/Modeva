@@ -3,6 +3,7 @@ import Promo from "../Components/Promo";
 import Nav from "../Components/Nav";
 import { useReducer, useMemo } from "react";
 import Card from "../Components/Card";
+import random from "../pics/rand2.png";
 
 const present = {
   Woman: { Dress: false, Shirt: false, Skirt: false },
@@ -47,7 +48,7 @@ const generateProducts = () => {
       price: parseFloat((Math.random() * 100 + 10).toFixed(2)),
       size: sizes[Math.floor(Math.random() * sizes.length)],
       color: colors[Math.floor(Math.random() * colors.length)],
-      image: `path/to/image${Math.floor(Math.random() * 5) + 1}.avif`,
+      image: random,
     };
   });
 };
@@ -66,12 +67,19 @@ export default function Products() {
   const products = useMemo(() => generateProducts(), []);
 
   const filteredProducts = products.filter((product) => {
+    // Check if ANY gender category has active filters
+    const hasAnyGenderFilters =
+      Object.values(state.Woman).includes(true) ||
+      Object.values(state.Man).includes(true) ||
+      Object.values(state.Unisex).includes(true);
+
+    // Check the current product's specific gender filter
     const gender = Object.values(state[product.category]).includes(true);
     const genderssub = state[product.category][product.subcategory];
     const isGenderSubValid = gender && genderssub;
-    const showAllgenders = !Object.values(state[product.category]).includes(
-      true
-    );
+
+    // If no gender filters are active anywhere, show all genders
+    const showAllgenders = !hasAnyGenderFilters;
 
     const isSizeIncluded = state.Size[product.size];
     const showAllSizes = !Object.values(state.Size).includes(true);
@@ -91,7 +99,7 @@ export default function Products() {
       <Promo />
       <Nav font="brown" />
       <div className="flex items-start justify-between">
-        <div className="sticky top-28 bg-gray-500 text-white w-1/6 ">
+        <div className=" hidden xl:block xl:sticky top-28 xl:bg-gray-500 text-white w-1/6 ">
           <details open>
             <summary>CATEGORY</summary>
             <div>
@@ -226,7 +234,7 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 xl:grid-cols-3 w-5/6 gap-4 ml-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:w-5/6 !gap-4 m-auto xl:ml-4">
           {filteredProducts.map((product) => (
             <Card
               key={product.id}

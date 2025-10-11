@@ -1,89 +1,83 @@
-*
-{
-  border:1px solid black;
-    margin: 1px;
+* {
+  margin: 1px;
   font-family: "Playfair Display", serif;
 }
 
-.Header
-{
+/* In your CSS file */
+.override-reboot {
+  @apply font-bold py-2 px-4 rounded !important;
+}
+.Header {
   display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Define column sizes */
+  grid-template-columns: 1fr 1fr 1fr; /* Define column sizes */
   grid-template-rows: 1fr 1fr auto auto auto; /* Define row sizes */
-  grid-template-areas: 
+  grid-template-areas:
     "nav nav nav"
     ". . ."
     "head head side"
     ". . promo1"
     ". . promo2";
-
 }
 
-.fh
-{
-  font-size: clamp(2rem,2vw,3rem);
+.fh {
+  font-size: clamp(2rem, 2vw, 3rem);
 }
 
-.promo
-{
+.promo {
   font-size: clamp(1rem, 3.333vw, 4rem);
 }
 
-html{
+html {
   width: 100vw;
 }
 
-.Nav *
-{
+.Nav * {
   padding: 2px;
 }
 
-.Nav
-{
+.Nav {
   grid-area: nav;
 }
 
-.Features
-{
-  display:grid;
+.Features {
+  display: grid;
   grid-template-areas:
-  "a b b c"
-  "a d d c"
+    "a b b c"
+    "a d d c";
 }
 
-
-.Features *
-{
-  margin:1rem;
+.Features * {
+  margin: 1rem;
 }
 
-@media screen and (min-width:1280px)
-{
-  .sidebar
-  {
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .sidebar {
     display: none;
   }
 }
 
-@media screen and (max-width:1280px){
-  .Features{
-    display:grid;
+@media screen and (max-width: 1280px) {
+  .Features {
+    display: grid;
     grid-template-areas:
-    "a"
-    "b"
-    "c"
-    "d"
+      "a"
+      "b"
+      "c"
+      "d";
   }
 
-  .nav{
+  .nav {
     display: none;
   }
 }
 
-@media screen and (max-width:600px)
-{
-  .logo
-  {
-    display:none;
+@media screen and (max-width: 600px) {
+  .logo {
+    display: none;
   }
 }

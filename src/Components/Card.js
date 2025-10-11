@@ -12,30 +12,81 @@ export default function Card(props) {
               src={rating45}
               className="absolute text-2xl z-10 right-0 aspect-[146/46] h-auto min-w-8 max-w-0"
             />
-            <img src={random} className="object-cover max-h-[40vh] w-full" />
+            <img
+              src={props.image || random}
+              className="object-cover max-h-[40vh] w-full aspect-[1/2]"
+            />
           </div>
 
-          <p style={{ fontSize: `clamp(0.1rem, 2.5vw, 2rem)` }}>
-            Product Category
+          <p
+            style={{
+              fontSize: `clamp(0.1rem, 2.5vw, 1.4rem)`,
+              marginBottom: "0rem !important",
+            }}
+            className="!mb-0"
+          >
+            {props.category || "Product Category"} ›{" "}
+            {props.subcategory || "Subcategory"}
           </p>
           <p
-            style={{ fontSize: `clamp(0.5rem, 2.5vw, 2rem)` }}
-            className="font-bold"
+            style={{
+              fontSize: `clamp(0.5rem, 2.5vw, 1.5rem)`,
+              marginBottom: "0.1rem !important",
+            }}
+            className="font-bold !mb-0"
           >
-            Product name
+            {props.name || "Product Name"}
           </p>
-          <p style={{ fontSize: `clamp(0.4rem, 2.5vw, 1.8rem)` }}>Id</p>
+          <p
+            className="!mb-0"
+            style={{
+              fontSize: `clamp(0.4rem, 2.5vw, 1.4rem)`,
+              marginBottom: "0.1rem !important",
+            }}
+          >
+            ${props.price || "0.00"}
+          </p>
+          <div className="flex gap-2 mt-1 bg-gray-100">
+            <div
+              style={{
+                fontSize: `clamp(0.4rem, 2.5vw, 1.5rem)`,
+                marginBottom: "0.1rem !important",
+              }}
+            >
+              {props.size || "M"}
+            </div>
+            <div
+              style={{
+                fontSize: `clamp(0.4rem, 2.5vw, 1.5rem)`,
+                marginBottom: "0.1rem !important",
+              }}
+            >
+              {props.color || "Black"}
+            </div>
+          </div>
         </div>
       )}
       {props.type !== "promo" && (
         <div className="bg-white p-4 m-2 rounded-lg shadow-sm">
           <img src={rating45} className="h-6 mb-3" />
-          <p className="text-sm text-gray-700 mb-4">
-            Alice Borderland was a great series but dropped at the last
+          <p
+            className="text-sm text-gray-700 mb-4"
+            style={{ marginBottom: "0.1rem !important" }}
+          >
+            {props.name ||
+              "Alice Borderland was a great series but dropped at the last"}
           </p>
           <div className="flex items-center">
-            <img src={random} className="w-8 h-8 rounded-full mr-3" />
-            <p className="font-medium text-sm">Alice</p>
+            <img
+              src={props.image || random}
+              className="w-8 h-8 rounded-full mr-3"
+            />
+            <p
+              className="font-medium text-sm"
+              style={{ marginBottom: "0.1rem !important" }}
+            >
+              {props.category || "Alice"}
+            </p>
           </div>
         </div>
       )}
