@@ -2,6 +2,7 @@ import modeva from "../pics/Modeva.png";
 import modeva2 from "../pics/Modeva_dark.png";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 
 export default function Nav(props) {
   const styles =
@@ -42,9 +43,9 @@ export default function Nav(props) {
         <a>
           <span className="material-symbols-outlined">person</span>
         </a>
-        <a>
+        <Link to="/cart">
           <span className="material-symbols-outlined">shopping_cart</span>
-        </a>
+        </Link>
         <Dropdown className="sidebar">
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             <span className="material-symbols-outlined">arrow_menu_close</span>

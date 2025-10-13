@@ -10,7 +10,7 @@ export default function Card(props) {
           <div className="relative w-full">
             <img
               src={rating45}
-              className="absolute text-2xl z-10 right-0 aspect-[146/46] h-auto min-w-8 max-w-0"
+              className="absolute text-2xl right-0 aspect-[146/46] h-auto min-w-8 max-w-0"
             />
             <img
               src={props.image || random}

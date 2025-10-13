@@ -4,6 +4,7 @@ import Nav from "../Components/Nav";
 import { useReducer, useMemo } from "react";
 import Card from "../Components/Card";
 import random from "../pics/rand2.png";
+import Filters from "../Components/Filters";
 
 const present = {
   Woman: { Dress: false, Shirt: false, Skirt: false },
@@ -66,6 +67,8 @@ export default function Products() {
   const [state, dispatch] = useReducer(reducer, present);
   const products = useMemo(() => generateProducts(), []);
 
+  //      v  this parses the products array and selects only valid ones
+
   const filteredProducts = products.filter((product) => {
     // Check if ANY gender category has active filters
     const hasAnyGenderFilters =
@@ -94,10 +97,18 @@ export default function Products() {
     );
   });
 
+  const callBackFunction = (obj, ele) => {
+    obj[ele.id] = 1;
+    return obj;
+  };
+
+  const InCart = products.reduce(callBackFunction, {});
+
   return (
     <div className="mt-6">
       <Promo />
       <Nav font="brown" />
+      <Filters state={state} dispatch={dispatch} />
       <div className="flex items-start justify-between">
         <div className=" hidden xl:block xl:sticky top-28 xl:bg-gray-500 text-white w-1/6 ">
           <details open>
