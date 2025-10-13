@@ -5,6 +5,7 @@ import {
   useReducer,
   useMemo,
 } from "react";
+import random from "./pics/rand2.png";
 
 const AppContext = createContext();
 
@@ -59,5 +60,86 @@ export const CartProductProvider = ({ children }) => {
       };
     });
   };
-  return <AppContext.Provider>{children}</AppContext.Provider>;
+
+  const reducer = (state, action) => {
+    return {
+      ...state,
+      [action.categories]: {
+        ...state[action.categories],
+        [action.subcategories]: !state[action.categories][action.subcategories],
+      },
+    };
+  };
+
+  const [state, dispatch] = useReducer(reducer, present);
+  const products = useMemo(() => generateProducts(), []);
+
+  const filteredProducts = products.filter((product) => {
+    const hasAnyGenderFilters =
+      Object.values(state.Woman).includes(true) ||
+      Object.values(state.Man).includes(true) ||
+      Object.values(state.Unisex).includes(true);
+
+    const gender = Object.values(state[product.category]).includes(true);
+    const genderssub = state[product.category][product.subcategory];
+    const isGenderSubValid = gender && genderssub;
+
+    const showAllgenders = !hasAnyGenderFilters;
+
+    const isSizeIncluded = state.Size[product.size];
+    const showAllSizes = !Object.values(state.Size).includes(true);
+
+    const isColourIncluded = state.Color[product.color];
+    const showAllColors = !Object.values(state.Color).includes(true);
+
+    return (
+      (showAllgenders || isGenderSubValid) &&
+      (showAllSizes || isSizeIncluded) &&
+      (showAllColors || isColourIncluded)
+    );
+  });
+
+  // Fixed: Proper cart state management
+  const [cart, setCart] = useState({});
+
+  const addToCart = (productId) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      [productId]: (prevCart[productId] || 0) + 1,
+    }));
+  };
+
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => {
+      const newCart = { ...prevCart };
+      if (newCart[productId] > 1) {
+        newCart[productId] -= 1;
+      } else {
+        delete newCart[productId];
+      }
+      return newCart;
+    });
+  };
+
+  // Value object to be provided to consumers
+  const value = {
+    state,
+    dispatch,
+    products,
+    filteredProducts,
+    cart,
+    addToCart,
+    removeFromCart,
+  };
+
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+};
+
+// Custom hook to use the context
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error("useAppContext must be used within a CartProductProvider");
+  }
+  return context;
 };

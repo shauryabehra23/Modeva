@@ -1,10 +1,11 @@
 import Footer from "../Components/Footer";
 import Promo from "../Components/Promo";
 import Nav from "../Components/Nav";
-import { useReducer, useMemo } from "react";
+import { useReducer, useMemo, useContext } from "react";
 import Card from "../Components/Card";
 import random from "../pics/rand2.png";
 import Filters from "../Components/Filters";
+import { useAppContext } from "../AppContext";
 
 const present = {
   Woman: { Dress: false, Shirt: false, Skirt: false },
@@ -66,10 +67,11 @@ const reducer = (state, action) => {
 export default function Products() {
   const [state, dispatch] = useReducer(reducer, present);
   const products = useMemo(() => generateProducts(), []);
+  const { filteredProducts } = useAppContext();
 
   //      v  this parses the products array and selects only valid ones
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts2 = products.filter((product) => {
     // Check if ANY gender category has active filters
     const hasAnyGenderFilters =
       Object.values(state.Woman).includes(true) ||
@@ -96,13 +98,6 @@ export default function Products() {
       (showAllColors || isColourIncluded)
     );
   });
-
-  const callBackFunction = (obj, ele) => {
-    obj[ele.id] = 1;
-    return obj;
-  };
-
-  const InCart = products.reduce(callBackFunction, {});
 
   return (
     <div className="mt-6">
