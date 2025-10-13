@@ -11,7 +11,7 @@ export default function Cart(props) {
   });
 
   return (
-    <div>
+    <div className="min-h-24">
       <Promo />;
       <Nav font="brown" />;
       <header className="text-5xl font-medium">Cart</header>
