@@ -6,7 +6,7 @@ export default function Card(props) {
   return (
     <div>
       {props.type === "promo" && (
-        <div className="outline-1 outline-gray-800 flex flex-col text-left !m-2 h-min">
+        <div className="outline-1 outline-gray-800 flex flex-col text-left !m-2 h-min w-[30vw] xl:w-[20vw]">
           <div className="relative w-full">
             <img
               src={rating45}
@@ -67,15 +67,14 @@ export default function Card(props) {
         </div>
       )}
       {props.type !== "promo" && (
-        <div className="bg-white p-4 m-2 rounded-lg shadow-sm">
+        <div className="bg-white p-4 m-2 rounded-lg shadow-sm w-[30vw]">
           <img src={rating45} className="h-6 mb-3" />
-          <p
-            className="text-sm text-gray-700 mb-4"
+          <div
+            className="text-sm text-gray-700 mb-4 w-11/12"
             style={{ marginBottom: "0.1rem !important" }}
           >
-            {props.name ||
-              "Alice Borderland was a great series but dropped at the last"}
-          </p>
+            "Alice Borderland was a great series but dropped at the last"
+          </div>
           <div className="flex items-center">
             <img
               src={props.image || random}

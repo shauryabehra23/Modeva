@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Header() {
   return (
     <div
-      className="grid Header w-full bg-cover text-white"
+      className="grid Header w-full bg-cover h-[90vh] text-white"
       style={{ backgroundImage: `url(${Hbg})` }}
     >
       <Nav font="white" />
@@ -15,7 +15,7 @@ export default function Header() {
         <h1 className="text-7xl">Discover the Art of Dressing Up</h1>
       </div>
 
-      <div
+      {/* <div
         className="promo flex overflow-x-hidden justify-end items-end"
         style={{ gridArea: "promo1" }}
       >
@@ -40,7 +40,7 @@ export default function Header() {
           <h4 className="line-through text-gray-800">$2000</h4>
           <h2 className="text-red-500">$1500</h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

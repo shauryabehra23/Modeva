@@ -1,7 +1,9 @@
 * {
-  border: 1px solid black;
-  margin: 1px;
   font-family: "Playfair Display", serif;
+}
+
+button:active {
+  transform: scale(0.9, 0.9);
 }
 
 /* In your CSS file */
@@ -14,10 +16,7 @@
   grid-template-rows: 1fr 1fr auto auto auto; /* Define row sizes */
   grid-template-areas:
     "nav nav nav"
-    ". . ."
-    "head head side"
-    ". . promo1"
-    ". . promo2";
+    "head head side";
 }
 
 .fh {

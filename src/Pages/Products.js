@@ -1,111 +1,21 @@
+/* eslint-disable no-unused-vars */
 import Footer from "../Components/Footer";
 import Promo from "../Components/Promo";
 import Nav from "../Components/Nav";
-import { useReducer, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { useReducer, useMemo, useContext } from "react";
 import Card from "../Components/Card";
 import random from "../pics/rand2.png";
 import Filters from "../Components/Filters";
+import { useAppContext } from "../AppContext";
+import Details from "./Details";
 
-const present = {
-  Woman: { Dress: false, Shirt: false, Skirt: false },
-  Man: { Shirt: false, Pants: false, Jacket: false },
-  Unisex: { Tshirt: false, Accessories: false, Shoes: false },
-  Size: { S: false, M: false, L: false, XL: false },
-  Color: {
-    Red: false,
-    Blue: false,
-    Black: false,
-    White: false,
-    Green: false,
-    Yellow: false,
-  },
-};
-
-const generateProducts = () => {
-  return Array.from({ length: 30 }, (_, index) => {
-    const categories = [
-      { category: "Woman", subcategories: ["Dress", "Shirt", "Skirt"] },
-      { category: "Man", subcategories: ["Shirt", "Pants", "Jacket"] },
-      { category: "Unisex", subcategories: ["Tshirt", "Accessories", "Shoes"] },
-    ];
-
-    const selectedCategory =
-      categories[Math.floor(Math.random() * categories.length)];
-    const selectedsubcategory =
-      selectedCategory.subcategories[
-        Math.floor(Math.random() * selectedCategory.subcategories.length)
-      ];
-
-    const sizes = ["S", "M", "L", "XL"];
-    const colors = ["Red", "Blue", "Black", "White", "Green", "Yellow"];
-
-    return {
-      id: index + 1,
-      name: `${selectedCategory.category}'s ${selectedsubcategory} ${
-        index + 1
-      }`,
-      category: selectedCategory.category,
-      subcategory: selectedsubcategory,
-      price: parseFloat((Math.random() * 100 + 10).toFixed(2)),
-      size: sizes[Math.floor(Math.random() * sizes.length)],
-      color: colors[Math.floor(Math.random() * colors.length)],
-      image: random,
-    };
-  });
-};
-const reducer = (state, action) => {
-  return {
-    ...state,
-    [action.categories]: {
-      ...state[action.categories],
-      [action.subcategories]: !state[action.categories][action.subcategories],
-    },
-  };
-};
 //-------------------------------------------------------------------------------
 export default function Products() {
-  const [state, dispatch] = useReducer(reducer, present);
-  const products = useMemo(() => generateProducts(), []);
-
-  //      v  this parses the products array and selects only valid ones
-
-  const filteredProducts = products.filter((product) => {
-    // Check if ANY gender category has active filters
-    const hasAnyGenderFilters =
-      Object.values(state.Woman).includes(true) ||
-      Object.values(state.Man).includes(true) ||
-      Object.values(state.Unisex).includes(true);
-
-    // Check the current product's specific gender filter
-    const gender = Object.values(state[product.category]).includes(true);
-    const genderssub = state[product.category][product.subcategory];
-    const isGenderSubValid = gender && genderssub;
-
-    // If no gender filters are active anywhere, show all genders
-    const showAllgenders = !hasAnyGenderFilters;
-
-    const isSizeIncluded = state.Size[product.size];
-    const showAllSizes = !Object.values(state.Size).includes(true);
-
-    const isColourIncluded = state.Color[product.color];
-    const showAllColors = !Object.values(state.Color).includes(true);
-
-    return (
-      (showAllgenders || isGenderSubValid) &&
-      (showAllSizes || isSizeIncluded) &&
-      (showAllColors || isColourIncluded)
-    );
-  });
-
-  const callBackFunction = (obj, ele) => {
-    obj[ele.id] = 1;
-    return obj;
-  };
-
-  const InCart = products.reduce(callBackFunction, {});
+  const { filteredProducts, state, dispatch } = useAppContext();
 
   return (
-    <div className="mt-6">
+    <div className="flex flex-col mt-6">
       <Promo />
       <Nav font="brown" />
       <Filters state={state} dispatch={dispatch} />
@@ -247,17 +157,19 @@ export default function Products() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 xl:w-5/6 !gap-4 m-auto xl:ml-4">
           {filteredProducts.map((product) => (
-            <Card
-              key={product.id}
-              type="promo"
-              category={product.category}
-              subcategory={product.subcategory}
-              price={product.price}
-              size={product.size}
-              color={product.color}
-              name={product.name}
-              image={product.image}
-            />
+            <Link key={product.id} to={`/details/${product.id}`}>
+              <Card
+                key={product.id}
+                type="promo"
+                category={product.category}
+                subcategory={product.subcategory}
+                price={product.price}
+                size={product.size}
+                color={product.color}
+                name={product.name}
+                image={product.image}
+              />
+            </Link>
           ))}
         </div>
       </div>
