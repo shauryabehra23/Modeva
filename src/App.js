@@ -13,7 +13,7 @@ import { CartProductProvider } from "./AppContext";
 function App() {
   return (
     <CartProductProvider>
-      <BrowserRouter basename="Modeva">
+      <BrowserRouter basename="/Modeva">
         <div className="App items-center">
           <Routes>
             {/* Default now shows Cart */}
