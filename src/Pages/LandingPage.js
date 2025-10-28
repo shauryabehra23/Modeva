@@ -20,19 +20,19 @@ export default function LandingPage() {
           <section className="grid grid-cols-2 grid-rows-2 w-5/6 m-auto">
             <div
               style={{ backgroundImage: `url(${grid1})` }}
-              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-lg row-span-1"
+              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-3xl row-span-1"
             >
               Casual Women
             </div>
             <div
               style={{ backgroundImage: `url(${grid2})` }}
-              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-lg row-span-2"
+              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-3xl row-span-2"
             >
               Formal Women
             </div>
             <div
               style={{ backgroundImage: `url(${grid3})` }}
-              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-lg row-span-1"
+              className="bg-cover bg-center text-white min-h-[200px] p-4 flex items-center font-extrabold text-3xl row-span-1"
             >
               Formal Men
             </div>

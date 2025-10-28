@@ -15,7 +15,7 @@ export default function Products() {
   const { filteredProducts, state, dispatch } = useAppContext();
 
   return (
-    <div className="mt-6">
+    <div className="flex flex-col mt-6">
       <Promo />
       <Nav font="brown" />
       <Filters state={state} dispatch={dispatch} />

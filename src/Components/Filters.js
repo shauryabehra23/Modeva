@@ -2,37 +2,13 @@ import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Filters({ state, dispatch }) {
-  const dropdownStyle = {
-    border: "1px solid #ddd",
-    borderRadius: "20px",
-    margin: "0 5px",
-    backgroundColor: "white",
-    zIndex: "50",
-  };
-
-  const filterBarStyle = {
-    backgroundColor: "#f8f9fa", // light gray background
-    borderBottom: "1px solid #dee2e6",
-  };
-
   return (
-    <div
-      className="xl:hidden filters-bar flex py-3 px-4 z-60"
-      style={filterBarStyle}
-    >
-      {/* Category Dropdown */}
-      <Dropdown style={dropdownStyle}>
-        <Dropdown.Toggle
-          variant="light"
-          id="dropdown-category"
-          className="border-0 rounded-pill px-3"
-        >
+    <div className="xl:hidden flex py-3 px-4 z-60 overflow-x-auto">
+      <Dropdown>
+        <Dropdown.Toggle variant="light" id="dropdown-category">
           Category
         </Dropdown.Toggle>
-        <Dropdown.Menu
-          className="p-3 z-60"
-          style={{ minWidth: "250px", zIndex: "60" }}
-        >
+        <Dropdown.Menu className="p-3">
           <div className="mb-2">
             <h6 className="fw-bold mb-2">Woman</h6>
             {["Dress", "Shirt", "Skirt"].map((item) => (
@@ -113,13 +89,8 @@ export default function Filters({ state, dispatch }) {
         </Dropdown.Menu>
       </Dropdown>
 
-      {/* Price Dropdown - Placeholder */}
-      <Dropdown style={dropdownStyle}>
-        <Dropdown.Toggle
-          variant="light"
-          id="dropdown-price"
-          className="border-0 rounded-pill px-3"
-        >
+      <Dropdown>
+        <Dropdown.Toggle variant="light" id="dropdown-price">
           Price
         </Dropdown.Toggle>
         <Dropdown.Menu className="p-3">
@@ -127,13 +98,8 @@ export default function Filters({ state, dispatch }) {
         </Dropdown.Menu>
       </Dropdown>
 
-      {/* Size Dropdown */}
-      <Dropdown style={dropdownStyle}>
-        <Dropdown.Toggle
-          variant="light"
-          id="dropdown-size"
-          className="border-0 rounded-pill px-3"
-        >
+      <Dropdown>
+        <Dropdown.Toggle variant="light" id="dropdown-size">
           Size
         </Dropdown.Toggle>
         <Dropdown.Menu className="p-3">
@@ -162,13 +128,8 @@ export default function Filters({ state, dispatch }) {
         </Dropdown.Menu>
       </Dropdown>
 
-      {/* Color Dropdown */}
-      <Dropdown style={dropdownStyle}>
-        <Dropdown.Toggle
-          variant="light"
-          id="dropdown-color"
-          className="border-0 rounded-pill px-3"
-        >
+      <Dropdown>
+        <Dropdown.Toggle variant="light" id="dropdown-color">
           Color
         </Dropdown.Toggle>
         <Dropdown.Menu className="p-3">
