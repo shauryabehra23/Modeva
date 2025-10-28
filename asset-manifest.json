@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Modeva/static/css/main.c04a7113.css",
-    "main.js": "/Modeva/static/js/main.b802e760.js",
+    "main.js": "/Modeva/static/js/main.fb84f417.js",
     "reactPlayerHls.js": "/Modeva/static/js/reactPlayerHls.426b0505.chunk.js",
     "reactPlayerDash.js": "/Modeva/static/js/reactPlayerDash.d77f4c27.chunk.js",
     "reactPlayerMux.js": "/Modeva/static/js/reactPlayerMux.dfa5b5ee.chunk.js",
@@ -24,7 +24,7 @@
     "static/media/rating45.PNG": "/Modeva/static/media/rating45.00c9f4df542a114bb73d.PNG",
     "index.html": "/Modeva/index.html",
     "main.c04a7113.css.map": "/Modeva/static/css/main.c04a7113.css.map",
-    "main.b802e760.js.map": "/Modeva/static/js/main.b802e760.js.map",
+    "main.fb84f417.js.map": "/Modeva/static/js/main.fb84f417.js.map",
     "reactPlayerHls.426b0505.chunk.js.map": "/Modeva/static/js/reactPlayerHls.426b0505.chunk.js.map",
     "reactPlayerDash.d77f4c27.chunk.js.map": "/Modeva/static/js/reactPlayerDash.d77f4c27.chunk.js.map",
     "reactPlayerMux.dfa5b5ee.chunk.js.map": "/Modeva/static/js/reactPlayerMux.dfa5b5ee.chunk.js.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.c04a7113.css",
-    "static/js/main.b802e760.js"
+    "static/js/main.fb84f417.js"
   ]
 }
