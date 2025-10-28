@@ -8,6 +8,7 @@ import grid3 from "../pics/grid3.avif";
 import rand2 from "../pics/rand2.png";
 import Features from "../Components/Features";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -46,7 +47,9 @@ export default function LandingPage() {
 
           <div>
             <button className="text-left bg-[#8B4513]">
-              <a className="p-1">See More</a>
+              <Link to="/products" className="p-1">
+                See More
+              </Link>
             </button>
           </div>
 
@@ -59,7 +62,9 @@ export default function LandingPage() {
 
           <div>
             <button className="text-left bg-[#8B4513]">
-              <a className="p-1">See More</a>
+              <Link to="/products" className="p-1">
+                See More
+              </Link>
             </button>
           </div>
 

@@ -20,10 +20,10 @@ function App() {
             <Route path="/cart" element={<Cart />} />
 
             {/* You can move LandingPage to another route */}
-            <Route path="/landing" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
 
-            <Route path="/" element={<Products />} />
-            <Route path="/products/:id" element={<Details />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/details/:id" element={<Details />} />
             <Route path="/login" element={<Login />} />
             <Route path="/checkout/step1" element={<Checkout1 />} />
             <Route path="/checkout/step2" element={<Checkout2 />} />
